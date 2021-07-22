@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace是命名空间,是一个mapper映射文件的唯一标识符,为了更好的定位
+    命名方式:包名+sql映射文件名
+-->
 <mapper namespace="com.team6.escapemaster_server.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.team6.escapemaster_server.entity.User">
-        <result column="id" jdbcType="INTEGER" property="id" />
-        <result column="mobile" jdbcType="VARCHAR" property="mobile" />
-        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
+    <resultMap id="UserList" type="com.team6.escapemaster_server.entity.User">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
     </resultMap>
-
-    <select id="Sel" resultType="com.team6.escapemaster_server.entity.User">
-        select * from user where id = #{id}
+    <!--查找单条记录-->
+    <select id="findUserById" resultType="com.team6.escapemaster_server.entity.User">
+        select *
+        from user
+        where id = #{id}
     </select>
 
+    <!--select * from user where username like '%王%';-->
+    <!--查询符合条件的多个用户
+        如果是返回的是集合,resultType中的类型是集合的反泛型具体指代的类型
+        ${} 拼接符
+        会有sql注入的风险 慎重使用
+
+        总结:
+            =           用占位符#{}
+            like        用拼接符${}  里面参数名一定要用value
+    -->
+    <!--查询多条记录-->
+    <select id="findUserByPassword" parameterType="java.lang.String" resultMap="UserList">
+        select *
+        from user
+        where password=#{password};
+    </select>
+
+    <!--插入单条记录-->
+    <!--insert into user(id,username,birthday,sex,address)values("2","kengken",'2009-06-08 23:53:17',"男","广州");-->
+    <!--
+        如果传入的是javabean类型(pojo类型)
+        那么占位符#{}中的变量名必须对应 javabean中对应的属性名
+
+        有时候需要返回数据库自增主键,可以使用mysql的函数:select LAST_INSERT_ID()
+    -->
+
+
+    <!--id属性是int类型并且主键使用了auto_increment自增,使用mysql的LAST_INSERT_ID()-->
+    <insert id="insertIntoUser" parameterType="com.team6.escapemaster_server.entity.User">
+
+        <!--
+          keyProperty 将返回的自增主键放到传入参数的id中保存
+          order 相当于insert语句的执行顺序
+              在INSERT语句执行之前是before,在INSERT语句执行之后执行是after
+          resultType: 就是keyProperty中属性的类型  在这里就是id类型
+         -->
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into user(mobile,password)
+        values(#{mobile},#{password})
+    </insert>
+
+    <!--删除单行记录-->
+    <!--delete from user where id=?-->
+    <delete id="deleteUserById">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+
+
+    <!--更新某行记录-->
+    <!--update user set username=${username} where id=${id}-->
+    <update id="updateUserById" parameterType="com.team6.escapemaster_server.entity.User">
+        update user
+        set mobile=#{mobile},
+            password=#{password}
+        where id = #{id}
+
+    </update>
+    <!--关于参数的类型的选择方式
+    如果传的是一个参数的话,那么就直接写其类型
+    但是如果是多个参数的话,那么传的参数就是javabean类型,注意这时候占位符里面的参数要和javabean对象的属性相匹配
+        -->
 </mapper>
