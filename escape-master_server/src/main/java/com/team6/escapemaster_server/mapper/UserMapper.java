@@ -7,10 +7,14 @@ import java.util.List;
 
 @Repository
 public interface UserMapper {
-    User findUserById(int id);
-    Integer insertIntoUser(String mobile,String password);
-    Integer deleteUserById(int id);
-    Integer updateUserById(int id,String mobile,String password);
-    List<User> findUserByPassword(String password);
+    User findUserByNumber(String phone_number);
+    Integer insertUser(String phone_number, String password);
 
+    User findUserById(int id);
+    Integer deleteUserById(int id);
+    Integer updateUserById(int id,String phone_number,String password,
+                           String nickname,int gender,
+                           String signature);
+
+    List<User> findUserByPassword(String password);
 }

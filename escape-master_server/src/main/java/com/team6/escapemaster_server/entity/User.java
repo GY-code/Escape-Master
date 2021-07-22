@@ -1,15 +1,15 @@
 package com.team6.escapemaster_server.entity;
 
 public class User {
-    private Integer id;
-    private String mobile;
+    private int id;
+    private int phone_number;
     private String password;
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", mobile='" + mobile + '\'' +
+                ", phone_number='" + phone_number + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
@@ -22,12 +22,12 @@ public class User {
         this.id = id;
     }
 
-    public String getMobile() {
-        return mobile;
+    public int getphone_number() {
+        return phone_number;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setphone_number(int phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getPassword() {

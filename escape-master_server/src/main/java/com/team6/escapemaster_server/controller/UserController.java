@@ -9,30 +9,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/dbop")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+
+    //注册
+    @RequestMapping("Register")
+    public String userRegister(String phone_number, String password) {
+        return userService.userRegister(phone_number, password);
+    }
+
+    //登录
+    @RequestMapping("Login")
+    public String userLogin(String phone_number,String password){
+        return userService.userLogin(phone_number,password);
+    }
+
+    //修改个人信息
+    @RequestMapping("UpdateUser")
+    public Integer updateUser(int id, String phone_number, String password, String nickname, int gender, String signature) {
+        return userService.updateUser(id, phone_number, password,nickname,gender,signature);
+    }
+
+    //查找用户
     @RequestMapping("findUserById/{id}")
     public String GetUser(@PathVariable int id) {
-        return userService.findUserById(id).toString();
+        User user = userService.findUserById(id);
+        if(user==null){
+            return "not found";
+        }else{
+            return user.toString();
+        }
     }
 
-    @RequestMapping("InsertUser")
-    public boolean InsUser(String mobile, String password) {
-        return userService.insertIntoUser(mobile, password) != -1;
-    }
-
+    //注销账号
     @RequestMapping("deleteUserById/{id}")
     public Integer DelUser(@PathVariable int id) {
         return userService.deleteUserById(id);
-    }
-
-    @RequestMapping("UpdateUser")
-    public Integer UpdUser(int id, String mobile, String password) {
-        return userService.updateUserById(id, mobile, password);
     }
 
     @RequestMapping("multiFind/{password}")
