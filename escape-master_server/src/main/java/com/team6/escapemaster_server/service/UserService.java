@@ -1,15 +1,15 @@
 package com.team6.escapemaster_server.service;
 
+import com.team6.escapemaster_server.algorithm.KnnPlusKernel;
+import com.team6.escapemaster_server.algorithm.RssObj;
 import com.team6.escapemaster_server.entity.User;
 import com.team6.escapemaster_server.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @Author:wjup
- * @Date: 2018/9/26 0026
- * @Time: 15:23
- */
+import java.util.ArrayList;
+
+
 @Service
 public class UserService {
     @Autowired
@@ -19,28 +19,38 @@ public class UserService {
         return userMapper.findUserById(id);
     }
 
-    public String userRegister(String phone_number, String password) {
+    public String userRegisterS1(String phone_number, String password) {
         //号码未注册才进入
         if(userMapper.findUserByNumber(phone_number)==null){
-            try {
-                if(userMapper.insertUser(phone_number,password)!=0)
-                    return "success";
-            } catch (Exception e) {
-            }
+            System.out.println("fake");
+            return "register continue";
+        }
+        else
+            return "register failed";
+    }
+
+    public String userRegisterS2(String phone_number, String password, String nickname, int gender, String signature) {
+        try {
+            System.out.println(phone_number+" "+password+" "+nickname+" "+gender+" "+signature);
+            if(userMapper.insertUser(phone_number,password,nickname,gender,signature)!=0)
+                return "register success";
+        } catch (Exception e) {
+            System.out.println("registerS2 failed");
         }
         return "register failed";
     }
 
-    public String userLogin(String phone_number,String password) {
-        User user = userMapper.findUserByNumber(phone_number);
+
+    public String userLogin(String ph,String pw) {
+        User user = userMapper.findUserByNumber(ph);
         if(user==null){
-            return "账号未注册";
+            return "Login failed";
         }else{
-            if(password.equals(user.getPassword())){
-                return "登录成功";
+            if(pw.equals(user.getPassword())){
+                return "Login success";
             }
             else
-                return "密码错误";
+                return "Login failed";
         }
     }
 
@@ -56,5 +66,11 @@ public class UserService {
         return userMapper.findUserByPassword(password);
     }
 
+    public String getPosition(double signal1, double signal2, double signal3, double signal4, double signal5, double signal6) {
+        ArrayList<RssObj> list = new ArrayList<>();
+        RssObj tar = new RssObj();
+
+        return KnnPlusKernel.getPosByKNK(list,tar,3);
+    }
 }
 

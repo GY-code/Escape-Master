@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface UserMapper {
     User findUserByNumber(String phone_number);
-    Integer insertUser(String phone_number, String password);
+    Integer insertUser(String phone_number, String password, String nickname, int gender, String signature);
 
     User findUserById(int id);
     Integer deleteUserById(int id);

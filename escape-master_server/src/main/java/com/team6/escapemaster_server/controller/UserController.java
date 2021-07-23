@@ -17,15 +17,28 @@ public class UserController {
 
 
     //注册
-    @RequestMapping("Register")
-    public String userRegister(String phone_number, String password) {
-        return userService.userRegister(phone_number, password);
+    @RequestMapping("hello")
+    public String Hello() {
+        return "hello server";
+    }
+
+    //注册 :S1
+    @RequestMapping("RegisterS1")
+    public String userRegisterS1(String phone_number, String password) {
+        return userService.userRegisterS1(phone_number, password);
+    }
+
+    //注册 :S2
+    @RequestMapping("RegisterS2")
+    public String userRegisterS2(String phone_number, String password,String nickname,String gender,String signature) {
+        int sex = Integer.parseInt(gender);
+        return userService.userRegisterS2(phone_number, password,nickname,sex,signature);
     }
 
     //登录
     @RequestMapping("Login")
-    public String userLogin(String phone_number,String password){
-        return userService.userLogin(phone_number,password);
+    public String userLogin(String ph,String pw){
+        return userService.userLogin(ph,pw);
     }
 
     //修改个人信息
