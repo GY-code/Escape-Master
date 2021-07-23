@@ -15,8 +15,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("getPosition")
+    public String getPosition(int r, double s1, double s2, double s3, double s4, double s5, double s6){
+        return userService.getPosition(r,s1,s2,s3,s4,s5,s6);
+    }
 
-    //注册
+    //Test
     @RequestMapping("hello")
     public String Hello() {
         return "hello server";
