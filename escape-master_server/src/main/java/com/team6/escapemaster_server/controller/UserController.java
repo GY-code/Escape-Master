@@ -15,17 +15,34 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("getPosition")
+    public String getPosition(int r, double s1, double s2, double s3, double s4, double s5, double s6){
+        return userService.getPosition(r,s1,s2,s3,s4,s5,s6);
+    }
 
-    //注册
-    @RequestMapping("Register")
-    public String userRegister(String phone_number, String password) {
-        return userService.userRegister(phone_number, password);
+    //Test
+    @RequestMapping("hello")
+    public String Hello() {
+        return "hello server";
+    }
+
+    //注册 :S1
+    @RequestMapping("RegisterS1")
+    public String userRegisterS1(String phone_number, String password) {
+        return userService.userRegisterS1(phone_number, password);
+    }
+
+    //注册 :S2
+    @RequestMapping("RegisterS2")
+    public String userRegisterS2(String phone_number, String password,String nickname,String gender,String signature) {
+        int sex = Integer.parseInt(gender);
+        return userService.userRegisterS2(phone_number, password,nickname,sex,signature);
     }
 
     //登录
     @RequestMapping("Login")
-    public String userLogin(String phone_number,String password){
-        return userService.userLogin(phone_number,password);
+    public String userLogin(String ph,String pw){
+        return userService.userLogin(ph,pw);
     }
 
     //修改个人信息

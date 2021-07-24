@@ -7,7 +7,7 @@
 
     <resultMap id="UserList" type="com.team6.escapemaster_server.entity.User">
         <result column="id" jdbcType="INTEGER" property="id"/>
-        <result column="phone_number" jdbcType="INTEGER" property="phone_number"/>
+        <result column="phone_number" jdbcType="VARCHAR" property="phone_number"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
         <result column="avatar" jdbcType="BLOB" property="avatar"/>
@@ -16,6 +16,13 @@
         <result column="gameTime" jdbcType="INTEGER" property="gameTime"/>
         <result column="isLogin" jdbcType="INTEGER" property="isLogin"/>
     </resultMap>
+
+    <select id="getTempPointsByRoom" resultType="com.team6.escapemaster_server.entity.TempPoint">
+        select *
+        from fingerprint_map
+        where room_id = #{room_id};
+    </select>
+
     <!--查找单条记录-->
     <select id="findUserById" resultType="com.team6.escapemaster_server.entity.User">
         select *
@@ -68,8 +75,8 @@
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into user(phone_number,password)
-        values(#{phone_number},#{password})
+        insert into user_info(phone_number,password,nickname,gender,signature)
+        values(#{phone_number},#{password},#{nickname},#{gender},#{signature})
     </insert>
 
     <!--删除单行记录-->

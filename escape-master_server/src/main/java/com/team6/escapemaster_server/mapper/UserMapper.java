@@ -1,14 +1,17 @@
 package com.team6.escapemaster_server.mapper;
 
+import com.team6.escapemaster_server.entity.TempPoint;
 import com.team6.escapemaster_server.entity.User;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Repository
 public interface UserMapper {
     User findUserByNumber(String phone_number);
-    Integer insertUser(String phone_number, String password);
+    Integer insertUser(String phone_number, String password, String nickname, int gender, String signature);
 
     User findUserById(int id);
     Integer deleteUserById(int id);
@@ -17,4 +20,6 @@ public interface UserMapper {
                            String signature);
 
     List<User> findUserByPassword(String password);
+
+    ArrayList<TempPoint> getTempPointsByRoom(int room_id);
 }
