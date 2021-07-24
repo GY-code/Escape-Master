@@ -14,48 +14,34 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FragmentPeople extends Fragment {
-    private List<Friend> friendList = new ArrayList<Friend>();
-    @Nullable
-//    private String[] data = { "Apple", "Banana", "Orange", "Watermelon",
-//            "Pear", "Grape", "Pineapple", "Strawberry", "Cherry", "Mango" };
+    private ListView listView;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_people,container,false);
-        getActivity().setContentView(R.layout.fragment_people);
-        initFruits(); // 初始化水果数据
-        FriendAdapter adapter = new FriendAdapter(this.getContext(), R.layout.friend_item, friendList);
-        ListView listView = (ListView) getActivity().findViewById(R.id.list_view);
-        listView.setAdapter(adapter);
-
-
-        return v;
+        View view= inflater.inflate(R.layout.fragment_people , container, false);
+        listView = (ListView)view.findViewById(R.id.list_view);
+        List<Map<String, Object>> list=getData();
+        listView.setAdapter(new FriendAdapter(getActivity(), list));
+        return view;
     }
 
-    private void initFruits() {
-        Friend apple = new Friend("Apple","pingguo1111111111111", R.drawable.weixin);
-        friendList.add(apple);
-        Friend banana = new Friend("Banana","pingguo", R.drawable.weixin);
-        friendList.add(banana);
-        Friend orange = new Friend("Orange", "pingguo",R.drawable.weixin);
-        friendList.add(orange);
-        Friend watermelon = new Friend("Watermelon","pingguo", R.drawable.weixin);
-        friendList.add(watermelon);
-        Friend pear = new Friend("Pear", "pingguo",R.drawable.weixin);
-        friendList.add(pear);
-        Friend grape = new Friend("Grape","pingguo", R.drawable.weixin);
-        friendList.add(grape);
-        Friend pineapple = new Friend("Pineapple","pingguo", R.drawable.weixin);
-        friendList.add(pineapple);
-        Friend strawberry = new Friend("Strawberry","pingguo", R.drawable.weixin);
-        friendList.add(strawberry);
-        Friend cherry = new Friend("Cherry", "pingguo",R.drawable.weixin);
-        friendList.add(cherry);
-        Friend mango = new Friend("Mango","pingguo", R.drawable.weixin);
-        friendList.add(mango);
-    }
 
+    private List<Map<String, Object>> getData() {
+        List<Map<String, Object>> list=new ArrayList<Map<String,Object>>();
+        for (int i = 0; i < 10; i++) {
+            Map<String, Object> map=new HashMap<String, Object>();
+            map.put("image", R.drawable.weixin);
+            map.put("title", "这是一个标题"+i);
+            map.put("info", "这是一个详细信息" + i);
+            list.add(map);
+        }
+        return list;
+
+    }
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
