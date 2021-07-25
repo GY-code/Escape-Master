@@ -89,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
                                 else
                                 {
-                                    System.out.println(data);
-                                    User user=JSON.parseObject(data,User.class);
+                                    User.user=JSON.parseObject(data,User.class);
                                     Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                                     SharedPreferences settings=getSharedPreferences("setting",0);
                                     SharedPreferences.Editor editor=settings.edit();
@@ -99,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
                                     editor.commit();
                                     Intent i = new Intent(MainActivity.this,MainpageActivity.class);
                                     startActivity(i);
-                                    System.out.println(user.toString());
                                 }
                             }
                             Looper.loop();

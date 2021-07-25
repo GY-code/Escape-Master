@@ -1,5 +1,7 @@
 package com.example.applicationtest001;
 
+import okhttp3.OkHttpClient;
+
 public class User {
     private int id;
     private String phone_number;
@@ -8,6 +10,7 @@ public class User {
     private int gender;
     private String signature;
 
+    public static User user=null;
     @Override
     public String toString() {
         return "User{" +
@@ -52,11 +55,11 @@ public class User {
         this.id = id;
     }
 
-    public String getphone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setphone_number(String phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 

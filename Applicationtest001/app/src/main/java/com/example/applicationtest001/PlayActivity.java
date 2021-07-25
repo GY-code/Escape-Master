@@ -59,7 +59,7 @@ public class PlayActivity extends AppCompatActivity {
                 String json = jsonParam.toJSONString();
                 MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
                 RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
-                OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/locate", requestBody,  new Callback() {
+                OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/getPositon", requestBody,  new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         System.out.println(e);
