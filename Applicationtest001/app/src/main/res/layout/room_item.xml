@@ -5,51 +5,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/friend_card_view"
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:cardCornerRadius="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="#918989">
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="#918989"
+        app:cardCornerRadius="20dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/roomimage"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/roomtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dip"
-                    android:layout_marginLeft="10dip"
-                    android:textColor="@color/white"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white" />
 
                 <TextView
-                    android:id="@+id/info"
+                    android:id="@+id/roominfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dip"
-                    android:layout_marginTop="20dip"
-                    android:textColor="@color/white"/>
+                    android:paddingTop="5dp"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

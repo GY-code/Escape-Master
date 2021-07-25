@@ -29,7 +29,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Button btn1 = (Button)findViewById(R.id.button6);
+        Button btn1 = (Button)findViewById(R.id.passwordlogin);
 
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -40,11 +40,11 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button btn2 = (Button)findViewById(R.id.button5);
+        Button btn2 = (Button)findViewById(R.id.nextstep1);
 
         btn2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String phone_number=((EditText)findViewById(R.id.password)).getText().toString().trim();
+                String phone_number=((EditText)findViewById(R.id.phonenumber2)).getText().toString().trim();
                 SharedPreferences settings=getSharedPreferences("setting",0);
                 SharedPreferences.Editor editor=settings.edit();
                 editor.putString("ph",phone_number);

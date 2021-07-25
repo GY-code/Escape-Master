@@ -63,11 +63,11 @@ public class VerActivity extends AppCompatActivity {
                 });
             }
                 });
-        Button button2=findViewById(R.id.button10);
+        Button button2=findViewById(R.id.nextstep3);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String verify = ((EditText) findViewById(R.id.password3)).getText().toString().trim();
+                String verify = ((EditText) findViewById(R.id.verify)).getText().toString().trim();
                 if (verify.equals("")) {
                     Toast.makeText(VerActivity.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
                 }

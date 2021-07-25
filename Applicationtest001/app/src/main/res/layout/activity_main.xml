@@ -63,7 +63,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/task"
         android:layout_width="244dp"
         android:layout_height="63dp"
         android:layout_marginTop="41dp"
@@ -95,7 +95,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/SMSlogin" />
 
     <TextView
         android:id="@+id/textView3"
@@ -112,7 +112,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/task" />
 
     <TextView
         android:id="@+id/textView4"
@@ -129,7 +129,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/forget" />
 
     <LinearLayout
         android:layout_width="378dp"
@@ -138,29 +138,68 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/task">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/SMSlogin"
             android:layout_width="129dp"
             android:layout_height="65dp"
             android:text="短信登录"
             app:backgroundTint="#393737" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/teamchat"
             android:layout_width="118dp"
             android:layout_height="65dp"
             android:text="新用户注册"
             app:backgroundTint="#393737" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/forget"
             android:layout_width="131dp"
-            android:layout_height="63dp"
+            android:layout_height="65dp"
             android:text="忘记密码？"
             app:backgroundTint="#393737" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/wblogin"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:background="@drawable/btn_shape"
+        android:drawableBottom="@drawable/weibo"
+        app:backgroundTint="#393737"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintStart_toEndOf="@+id/qqlogin" />
+
+    <Button
+        android:id="@+id/qqlogin"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/btn_shape"
+        android:drawableBottom="@drawable/qq"
+        app:backgroundTint="#393737"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/vxlogin" />
+
+    <Button
+        android:id="@+id/vxlogin"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/btn_shape"
+        android:drawableBottom="@drawable/weixin"
+        app:backgroundTint="#393737"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

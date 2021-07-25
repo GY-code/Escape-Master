@@ -7,7 +7,7 @@
     tools:context=".PlayActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/task"
         android:layout_width="60dp"
         android:layout_height="58dp"
         android:layout_marginStart="228dp"
@@ -19,16 +19,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/teamchat"
         android:layout_width="62dp"
         android:layout_height="59dp"
         android:backgroundTint="#F2F2F2"
         android:drawableBottom="@drawable/chat"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/task" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/editperson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"

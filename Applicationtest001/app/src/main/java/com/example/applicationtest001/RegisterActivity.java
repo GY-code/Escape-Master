@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +14,6 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URLEncoder;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        Button btn2 = (Button)findViewById(R.id.button7);
+        Button btn2 = (Button)findViewById(R.id.register);
 
         btn2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
