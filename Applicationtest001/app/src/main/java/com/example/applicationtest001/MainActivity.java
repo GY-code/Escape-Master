@@ -3,22 +3,30 @@ package com.example.applicationtest001;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,73 +65,51 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"用户名或密码不能为空",Toast.LENGTH_SHORT).show();
                 else
                 {
-                    new Thread(){
-
-                        private HttpURLConnection connection;
-
-
+                    JSONObject jsonParam=new JSONObject();
+                    jsonParam.put("ph",username);
+                    jsonParam.put("pw",password);
+                    String json = jsonParam.toJSONString();
+                    MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
+                    RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
+                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/Login", requestBody,  new Callback() {
                         @Override
-                        public void run() {
-
-                            try {
-                                //封装成传输数据的键值对,无论get还是post,传输中文时都要进行url编码（RULEncoder）
-                                // 如果是在浏览器端的话，它会自动进行帮我们转码，不用我们进行手动设置
-                                String data2= "ph="+ URLEncoder.encode(username,"utf-8")+"&pw="+ URLEncoder.encode(password,"utf-8");
-                                connection=HttpConnectionUtils.getConnection(data2,"Login");
-                                int code = connection.getResponseCode();
-                                if(code==200){
-                                    InputStream inputStream = connection.getInputStream();
-                                    String str = StreamChangeStrUtils.toChange(inputStream);//写个工具类流转换成字符串
-                                    Message message = Message.obtain();//更新UI就要向消息机制发送消息
-                                    message.what=0;//用来标志是哪个消息
-                                    message.obj=str;//消息主体
-                                    System.out.println(str);
-                                    handler.sendMessage(message);
-                                }
-                                else {
-                                    Message message = Message.obtain();
-                                    message.what=1;
-                                    handler.sendMessage(message);
-                                }
-                            } catch (Exception e) {//会抛出很多个异常，这里抓一个大的异常
-                                e.printStackTrace();
-                                Message message = Message.obtain();
-                                message.what=2;
-                                handler.sendMessage(message);
-                            }
+                        public void onFailure(Call call, IOException e) {
+                            System.out.println(e);
                         }
-                    }.start();//不要忘记开线程
-                }
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            final String data = response.body().string();
+                            Looper.prepare();
+                            if(data.equals("number not registered"))
+                                Toast.makeText(MainActivity.this, "账号未注册", Toast.LENGTH_SHORT).show();
+                            else {
+                                if(data.equals("incorrect password"))
+                                    Toast.makeText(MainActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+                                else
+                                {
 
+                                    Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+
+                                    Intent i = new Intent(MainActivity.this,MainpageActivity.class);
+                                    startActivity(i);
+
+                                }
+                            }
+                            Looper.loop();
+
+                        }
+                    });
+                }
 
             }
         });
 
     }
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case 0:
-                    if(msg.obj.equals("Login failed"))
-                        Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(MainActivity.this,MainpageActivity.class);
-                        startActivity(i);
-                    }
-                    break;
-                case 1:
-                    Toast.makeText(MainActivity.this, "Internet error", Toast.LENGTH_SHORT).show();
-                    break;
-                case 2:
-                    Toast.makeText(MainActivity.this, "Server error", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    super.handleMessage(msg);
-            }
-        }
-    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferences settings=getSharedPreferences("setting",0);
+        settings.edit().clear().commit();
+    }
 
 }

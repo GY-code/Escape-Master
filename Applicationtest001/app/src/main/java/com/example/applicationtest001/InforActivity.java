@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Looper;
 import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class InforActivity extends AppCompatActivity {
 
@@ -42,33 +52,35 @@ public class InforActivity extends AppCompatActivity {
                     Toast.makeText(InforActivity.this,"用户信息不完整",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    new Thread(){
-
-                        HttpURLConnection connection=null;
+                    JSONObject jsonParam=new JSONObject();
+                    jsonParam.put("phone_number",phone_number);
+                    jsonParam.put("password",password);
+                    jsonParam.put("nickname",username);
+                    jsonParam.put("gender",gender);
+                    jsonParam.put("signature",information);
+                    String json = jsonParam.toJSONString();
+                    MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
+                    RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
+                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/RegisterS2", requestBody,  new Callback() {
                         @Override
-                        public void run() {
-                            try {
-                                String data= "phone_number="+ URLEncoder.encode(phone_number,"utf-8")+"&password="+ URLEncoder.encode(password,"utf-8")+
-                                        "&nickname="+URLEncoder.encode(username,"utf-8")+"&gender="+URLEncoder.encode(gender,"utf-8")+"&signature="+
-                                        URLEncoder.encode(information,"utf-8");
-                                connection=HttpConnectionUtils.getConnection(data,"RegisterS2");
-                                int code = connection.getResponseCode();
-                                if(code==200){
-                                    InputStream inputStream = connection.getInputStream();
-                                    String str = StreamChangeStrUtils.toChange(inputStream);
-                                    System.out.println(str);
-                                    Intent i = new Intent(InforActivity.this,MainpageActivity.class);
-                                    startActivity(i);
-                                }
-                                else {
-                                    Toast.makeText(InforActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                        public void onFailure(Call call, IOException e) {
+                            System.out.println(e);
+                        }
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            final String data = response.body().string();
+                            Looper.prepare();
+                            if(data.equals("register error"))
+                                Toast.makeText(InforActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                            else {
+                                Toast.makeText(InforActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(InforActivity.this,MainpageActivity.class);
+                                startActivity(i);
                             }
+                            Looper.loop();
 
                         }
-                    }.start();//不要忘记开线程
+                    });
 
                 }
             }

@@ -41,7 +41,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/password2"
+        android:id="@+id/phonenumber"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -61,7 +61,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/phonenumber"
+        android:id="@+id/password2"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
