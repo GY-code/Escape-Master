@@ -52,11 +52,7 @@ public class FragmentPerson extends Fragment {
                 startActivity(i);
             }
         });
-    }
-    @Override
-    public void onStart() {
 
-        super.onStart();
         TextView t1=getView().findViewById(R.id.textView12);
         TextView t2=getView().findViewById(R.id.textView14);
         TextView t3=getView().findViewById(R.id.textView16);
@@ -69,4 +65,5 @@ public class FragmentPerson extends Fragment {
             t3.setText("女");
         t4.setText(User.user.getSignature());
     }
+
 }

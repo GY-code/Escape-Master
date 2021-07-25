@@ -11,14 +11,15 @@ public class ModifypasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifypassword);
 
-        Button btn1 = findViewById(R.id.editperson);
+        Button btn1 = findViewById(R.id.confirm);
 
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(ModifypasswordActivity.this,FragmentPerson.class);
+                Intent i = new Intent(ModifypasswordActivity.this,MainpageActivity.class);
                 startActivity(i);
             }
         });

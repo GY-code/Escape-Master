@@ -11,14 +11,13 @@
         android:id="@+id/sendver"
         android:layout_width="146dp"
         android:layout_height="49dp"
+        android:layout_marginTop="84dp"
         android:background="#393737"
         android:text="重新发送（60）"
         android:textColor="#F2F2F2"
         app:backgroundTint="#393737"
-        app:layout_constraintBottom_toTopOf="@+id/setpassword2"
         app:layout_constraintStart_toEndOf="@+id/setpassword1"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/nextstep4"
@@ -58,15 +57,15 @@
         android:layout_width="204dp"
         android:layout_height="47dp"
         android:layout_gravity="center"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginBottom="528dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="84dp"
         android:hint="请输入您的手机号"
         android:textColor="#F2F2F2"
         android:textColorHint="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -76,17 +75,17 @@
         android:layout_gravity="center"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
-        android:layout_marginBottom="440dp"
         android:hint="请输入验证码"
         android:textColor="#F2F2F2"
         android:textColorHint="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setpassword1"
         tools:ignore="MissingConstraints" />
 
     <Button
