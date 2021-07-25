@@ -20,12 +20,11 @@
 
     <ListView
         android:id="@+id/room_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_width="412dp"
+        android:layout_height="671dp"
+        android:divider="@null"
         android:stackFromBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_view"
-        android:divider="@null"/>
+        app:layout_constraintTop_toBottomOf="@+id/search_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

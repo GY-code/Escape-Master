@@ -2,14 +2,11 @@ package com.example.applicationtest001;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -29,7 +26,7 @@ public class PlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        Button btn1 = (Button)findViewById(R.id.button2);
+        Button btn1 = (Button)findViewById(R.id.teamchat);
 
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -38,7 +35,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button btn2 = (Button)findViewById(R.id.button);
+        Button btn2 = (Button)findViewById(R.id.task);
 
         btn2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -47,7 +44,7 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        Button btn3 = (Button)findViewById(R.id.button13);
+        Button btn3 = (Button)findViewById(R.id.editperson);
 
         btn2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#393737"
-    android:gravity="center" >
+    android:background="#303030"
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/friendView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,10 +21,12 @@
 
     <ListView
         android:id="@+id/list_view"
-        android:layout_width="408dp"
-        android:layout_height="690dp"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:divider="@null"
+        android:stackFromBottom="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/friendView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

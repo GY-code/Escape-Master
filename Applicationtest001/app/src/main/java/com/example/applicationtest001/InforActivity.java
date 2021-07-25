@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
-import android.os.Message;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +14,6 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URLEncoder;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,17 +28,17 @@ public class InforActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor);
-        Button button=findViewById(R.id.button);
+        Button button=findViewById(R.id.task);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String gender;
-                if(findViewById(R.id.radioButton3).isSelected())
+                if(findViewById(R.id.manradioButton).isSelected())
                     gender="1";
                 else
                     gender="0";
-                String username = ((EditText)findViewById(R.id.editTextTextPersonName)).getText().toString().trim();
-                String information = ((EditText)findViewById(R.id.editTextTextPersonName2)).getText().toString().trim();
+                String username = ((EditText)findViewById(R.id.editTextPersonName)).getText().toString().trim();
+                String information = ((EditText)findViewById(R.id.editTextPersonInfo)).getText().toString().trim();
                 SharedPreferences settings=getSharedPreferences("setting",0);
                 String phone_number= settings.getString("ph","");
                 String password=settings.getString("password","");

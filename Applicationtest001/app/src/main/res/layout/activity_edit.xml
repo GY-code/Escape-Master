@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="-149dp">
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/editName1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName9"
+            android:id="@+id/editinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="49dp"
@@ -40,10 +40,10 @@
             android:text="Name"
             android:textColor="#F2F2F2"
             app:layout_constraintStart_toEndOf="@+id/textView21"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+            app:layout_constraintTop_toBottomOf="@+id/edittime" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName8"
+            android:id="@+id/edittime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="49dp"
@@ -54,10 +54,10 @@
             android:text="Name"
             android:textColor="#F2F2F2"
             app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+            app:layout_constraintTop_toBottomOf="@+id/editgender" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/editName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -68,7 +68,7 @@
             android:text="Name"
             android:textColor="#F2F2F2"
             app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+            app:layout_constraintTop_toBottomOf="@+id/editName1" />
 
         <TextView
             android:id="@+id/textView11"
@@ -136,7 +136,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/editgender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="49dp"
@@ -147,10 +147,10 @@
             android:text="Name"
             android:textColor="#F2F2F2"
             app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+            app:layout_constraintTop_toBottomOf="@+id/editName2" />
 
         <Button
-            android:id="@+id/button17"
+            android:id="@+id/editconfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="159dp"
@@ -162,7 +162,7 @@
             app:backgroundTint="#393737"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+            app:layout_constraintTop_toBottomOf="@+id/editinfo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

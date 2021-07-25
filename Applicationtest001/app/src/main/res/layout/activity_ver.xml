@@ -23,7 +23,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/password3"
+        android:id="@+id/verify"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -42,7 +42,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/nextstep3"
         android:layout_width="291dp"
         android:layout_height="51dp"
         android:layout_marginTop="29dp"
@@ -55,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/phonenumber2" />
 
     <Button
         android:id="@+id/button11"
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/nextstep1" />
 
     <TextView
         android:id="@+id/textView10"

@@ -175,7 +175,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/editperson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="编辑"
