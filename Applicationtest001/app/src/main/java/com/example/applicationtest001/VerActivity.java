@@ -75,13 +75,15 @@ public class VerActivity extends AppCompatActivity {
                     SharedPreferences settings = getSharedPreferences("setting", 0);
                     SharedPreferences.Editor editor=settings.edit();
                     String msgId = settings.getString("msgId", "");
+                    String ph=settings.getString("ph","");
                     JSONObject jsonParam = new JSONObject();
                     jsonParam.put("msgId", msgId);
                     jsonParam.put("cache", verify);
+                    jsonParam.put("phone_number",ph);
                     String json = jsonParam.toJSONString();
                     MediaType mediaType = MediaType.Companion.parse("application/json;charset=utf-8");
                     RequestBody requestBody = RequestBody.Companion.create(json, mediaType);
-                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/verify", requestBody, new Callback() {
+                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/LoginVerifySMS", requestBody, new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
                             System.out.println(e);
@@ -96,8 +98,6 @@ public class VerActivity extends AppCompatActivity {
                             else
                             {
                                 Toast.makeText(VerActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-                                SharedPreferences settings=getSharedPreferences("setting",0);
-                                settings.edit().clear().commit();
                                 Intent i = new Intent(VerActivity.this,MainpageActivity.class);
                                 startActivity(i);
                             }

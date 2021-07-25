@@ -13,7 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     String json = jsonParam.toJSONString();
                     MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
                     RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
-                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/Login", requestBody,  new Callback() {
+                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/LoginByPw", requestBody,  new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
                             System.out.println(e);
@@ -87,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
                                 else
                                 {
-
+                                    System.out.println(data);
+                                    User user=JSON.parseObject(data,User.class);
                                     Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                                     SharedPreferences settings=getSharedPreferences("setting",0);
                                     SharedPreferences.Editor editor=settings.edit();
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                                     editor.commit();
                                     Intent i = new Intent(MainActivity.this,MainpageActivity.class);
                                     startActivity(i);
-
+                                    System.out.println(user.toString());
                                 }
                             }
                             Looper.loop();
