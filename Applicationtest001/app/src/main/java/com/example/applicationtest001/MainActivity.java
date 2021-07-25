@@ -89,7 +89,11 @@ public class MainActivity extends AppCompatActivity {
                                 {
 
                                     Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-
+                                    SharedPreferences settings=getSharedPreferences("setting",0);
+                                    SharedPreferences.Editor editor=settings.edit();
+                                    editor.putString("ph",username);
+                                    editor.putString("password",password);
+                                    editor.commit();
                                     Intent i = new Intent(MainActivity.this,MainpageActivity.class);
                                     startActivity(i);
 

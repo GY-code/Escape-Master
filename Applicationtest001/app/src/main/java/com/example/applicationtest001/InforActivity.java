@@ -47,7 +47,6 @@ public class InforActivity extends AppCompatActivity {
                 SharedPreferences settings=getSharedPreferences("setting",0);
                 String phone_number= settings.getString("ph","");
                 String password=settings.getString("password","");
-                settings.edit().clear().commit();
                 if(username.equals("") || information.equals("")){
                     Toast.makeText(InforActivity.this,"用户信息不完整",Toast.LENGTH_SHORT).show();
                 }
