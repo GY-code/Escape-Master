@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Applicationtest001"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditActivity"></activity>
+        <activity android:name=".ModifypasswordActivity"></activity>
+        <activity android:name=".SetPasswordActivity" />
+        <activity android:name=".FChatActivity" />
+        <activity android:name=".EditActivity" />
         <activity android:name=".TaskActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".PlayActivity" />

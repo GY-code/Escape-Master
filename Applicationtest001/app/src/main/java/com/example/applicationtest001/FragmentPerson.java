@@ -18,6 +18,14 @@ public class FragmentPerson extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_person,container,false);
 
+
+
+        return v;
+    }
+
+    public void onStart() {
+
+        super.onStart();
         Button btn1 = (Button)getActivity().findViewById(R.id.editperson);
 
         btn1.setOnClickListener(new View.OnClickListener(){
@@ -27,7 +35,23 @@ public class FragmentPerson extends Fragment {
             }
         });
 
-        return v;
+        Button btn2 = (Button)getActivity().findViewById(R.id.exitlogin);
+
+        btn2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button btn3 = (Button)getActivity().findViewById(R.id.modifypassword);
+
+        btn3.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(getContext(),ModifypasswordActivity.class);
+                startActivity(i);
+            }
+        });
     }
     @Override
     public void onStart() {

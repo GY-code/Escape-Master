@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
@@ -38,13 +39,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        Button btn2 = (Button)findViewById(R.id.register);
+        Button btn2 = (Button)findViewById(R.id.nextstep4);
 
         btn2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-                String username = ((EditText)findViewById(R.id.phonenumber)).getText().toString().trim();
-                String password = ((EditText)findViewById(R.id.password2)).getText().toString().trim();
+                String username = ((EditText)findViewById(R.id.setpassword1)).getText().toString().trim();
+                String password = ((EditText)findViewById(R.id.setpassword2)).getText().toString().trim();
                 if(username.equals("") || password.equals("")){
                     Toast.makeText(RegisterActivity.this,"用户名或密码不能为空",Toast.LENGTH_SHORT).show();
                 }
@@ -72,8 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
                             if(data.equals("number registered"))
                                 Toast.makeText(RegisterActivity.this, "账号已被注册", Toast.LENGTH_SHORT).show();
                             else {
-                                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(RegisterActivity.this,InforActivity.class);
+                                    Toast.makeText(RegisterActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
+                                    Intent i = new Intent(RegisterActivity.this,SetPasswordActivity.class);
                                     startActivity(i);
                             }
                             Looper.loop();
@@ -85,6 +86,31 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        Button btn3 = findViewById(R.id.sendver);
+        btn3.setText("发送");
+        btn3.setClickable(true);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CountDownTimer time = new CountDownTimer(1000 * 60, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                        btn3.setClickable(false);
+                        btn3.setText("重新发送" + "("+(millisUntilFinished / 1000)+")" );
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        btn3.setText("重新发送");
+                        btn3.setClickable(true);
+                    }
+                };
+
+                time.start();
+            }
         });
 
     }

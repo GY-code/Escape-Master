@@ -1,10 +1,12 @@
 package com.example.applicationtest001;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FragmentPeople extends Fragment {
+public class FragmentPeople extends Fragment implements AdapterView.OnItemClickListener {
     private ListView listView;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class FragmentPeople extends Fragment {
         listView = (ListView)view.findViewById(R.id.list_view);
         List<Map<String, Object>> list=getData();
         listView.setAdapter(new FriendAdapter(getActivity(), list));
+        listView.setOnItemClickListener(this);
         return view;
     }
 
@@ -41,6 +44,12 @@ public class FragmentPeople extends Fragment {
         }
         return list;
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Intent intent=new Intent(getActivity(),FChatActivity.class);
+        startActivity(intent);
     }
 
 //    @Override

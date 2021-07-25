@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
@@ -111,7 +112,31 @@ public class VerActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        button1.setText("发送");
+        button1.setClickable(true);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CountDownTimer time = new CountDownTimer(1000 * 60, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                        button1.setClickable(false);
+                        button1.setText("重新发送" + "("+(millisUntilFinished / 1000)+")" );
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        button1.setText("重新发送");
+                        button1.setClickable(true);
+                    }
+                };
+
+                time.start();
+            }
+        });
+
     }
-
-
 }
