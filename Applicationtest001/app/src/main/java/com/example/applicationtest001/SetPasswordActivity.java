@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextPaint;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,8 +44,37 @@ public class SetPasswordActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                CheckStrength cs=new CheckStrength();
+                if (StringUtils.equalsNull(editText.getText().toString())) {
+                    return;
+                }
+                int level=cs.checkPasswordStrength(editText.getText().toString());
+                Log.i("password",level+"");
+                switch (level) {
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        imageView.setImageResource(R.drawable.di);
+                        break;
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                        imageView.setImageResource(R.drawable.zhong);
+                        break;
+                    case 9:
+                    case 10:
+                    case 11:
+                    case 12:
+                    default:
+                        imageView.setImageResource(R.drawable.gao);
+                        break;
 
-                imageView.setImageResource(R.drawable.di);
+                }
+
+
             }
 
             @Override

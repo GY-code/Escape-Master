@@ -6,9 +6,6 @@ package com.example.applicationtest001;
  * @author venshine
  */
 public class CheckStrength {
-    public enum LEVEL {
-        EASY, MIDIUM, STRONG, VERY_STRONG, EXTREMELY_STRONG
-    }
     /**
      * NUM 数字
      * SMALL_LETTER 小写字母
@@ -67,9 +64,6 @@ public class CheckStrength {
      * @return strength level
      */
     public static int checkPasswordStrength(String passwd) {
-        if (StringUtils.equalsNull(passwd)) {
-            throw new IllegalArgumentException("password is empty");
-        }
         int len = passwd.length();
         int level = 0;
         // 增加点
@@ -89,7 +83,7 @@ public class CheckStrength {
         if (len > 6 && countLetter(passwd, OTHER_CHAR) > 0) {
             level++;
         }
-        //密码长度大于4并且2种类型组合......（不一一概述）
+        //密码长度大于4并且2种类型组合
         if (len > 4 && countLetter(passwd, NUM) > 0 && countLetter(passwd, SMALL_LETTER) > 0
                 || countLetter(passwd, NUM) > 0 && countLetter(passwd, CAPITAL_LETTER) > 0
                 || countLetter(passwd, NUM) > 0 && countLetter(passwd, OTHER_CHAR) > 0
@@ -98,7 +92,7 @@ public class CheckStrength {
                 || countLetter(passwd, CAPITAL_LETTER) > 0 && countLetter(passwd, OTHER_CHAR) > 0) {
             level++;
         }
-        //密码长度大于6并且3中类型组合......（不一一概述）
+        //密码长度大于6并且3中类型组合
         if (len > 6 && countLetter(passwd, NUM) > 0 && countLetter(passwd, SMALL_LETTER) > 0
                 && countLetter(passwd, CAPITAL_LETTER) > 0 || countLetter(passwd, NUM) > 0
                 && countLetter(passwd, SMALL_LETTER) > 0 && countLetter(passwd, OTHER_CHAR) > 0
@@ -107,12 +101,12 @@ public class CheckStrength {
                 && countLetter(passwd, CAPITAL_LETTER) > 0 && countLetter(passwd, OTHER_CHAR) > 0) {
             level++;
         }
-        //密码长度大于8并且4种类型组合......（不一一概述）
+        //密码长度大于8并且4种类型组合
         if (len > 8 && countLetter(passwd, NUM) > 0 && countLetter(passwd, SMALL_LETTER) > 0
                 && countLetter(passwd, CAPITAL_LETTER) > 0 && countLetter(passwd, OTHER_CHAR) > 0) {
             level++;
         }
-        //密码长度大于6并且2种类型组合每种类型长度大于等于3或者2......（不一一概述）
+        //密码长度大于6并且2种类型组合每种类型长度大于等于3或者2
         if (len > 6 && countLetter(passwd, NUM) >= 3 && countLetter(passwd, SMALL_LETTER) >= 3
                 || countLetter(passwd, NUM) >= 3 && countLetter(passwd, CAPITAL_LETTER) >= 3
                 || countLetter(passwd, NUM) >= 3 && countLetter(passwd, OTHER_CHAR) >= 2
@@ -121,7 +115,7 @@ public class CheckStrength {
                 || countLetter(passwd, CAPITAL_LETTER) >= 3 && countLetter(passwd, OTHER_CHAR) >= 2) {
             level++;
         }
-        //密码长度大于8并且3种类型组合每种类型长度大于等于3或者2......（不一一概述）
+        //密码长度大于8并且3种类型组合每种类型长度大于等于3或者2
         if (len > 8 && countLetter(passwd, NUM) >= 2 && countLetter(passwd, SMALL_LETTER) >= 2
                 && countLetter(passwd, CAPITAL_LETTER) >= 2 || countLetter(passwd, NUM) >= 2
                 && countLetter(passwd, SMALL_LETTER) >= 2 && countLetter(passwd, OTHER_CHAR) >= 2
@@ -130,7 +124,7 @@ public class CheckStrength {
                 && countLetter(passwd, CAPITAL_LETTER) >= 2 && countLetter(passwd, OTHER_CHAR) >= 2) {
             level++;
         }
-        //密码长度大于10并且4种类型组合每种类型长度大于等于2......（不一一概述）
+        //密码长度大于10并且4种类型组合每种类型长度大于等于2
         if (len > 10 && countLetter(passwd, NUM) >= 2 && countLetter(passwd, SMALL_LETTER) >= 2
                 && countLetter(passwd, CAPITAL_LETTER) >= 2 && countLetter(passwd, OTHER_CHAR) >= 2) {
             level++;
@@ -219,34 +213,5 @@ public class CheckStrength {
         }
         return level;
     }
-    /**
-     *获得密码强度等级，包括简单、复杂、强、强、强
-     *
-     * @param passwd
-     * @return
-     */
-    public static LEVEL getPasswordLevel(String passwd) {
-        int level = checkPasswordStrength(passwd);
-        switch (level) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-                return LEVEL.EASY;
-            case 4:
-            case 5:
-            case 6:
-                return LEVEL.MIDIUM;
-            case 7:
-            case 8:
-            case 9:
-                return LEVEL.STRONG;
-            case 10:
-            case 11:
-            case 12:
-                return LEVEL.VERY_STRONG;
-            default:
-                return LEVEL.EXTREMELY_STRONG;
-        }
-    }
+
 }
