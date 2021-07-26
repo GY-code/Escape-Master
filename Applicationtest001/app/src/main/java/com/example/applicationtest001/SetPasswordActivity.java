@@ -3,10 +3,8 @@ package com.example.applicationtest001;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextPaint;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +20,7 @@ public class SetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_password);
 
-        Button btn1 = (Button)findViewById(R.id.nextstep4);
+        Button btn1 = (Button)findViewById(R.id.RegisterButton);
 
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -35,7 +33,7 @@ public class SetPasswordActivity extends AppCompatActivity {
 
         ImageView imageView = findViewById(R.id.Passwordstrength);
 
-        EditText editText = findViewById(R.id.setpassword1);
+        EditText editText = findViewById(R.id.setMobile);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
