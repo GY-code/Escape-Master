@@ -139,8 +139,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                             }
                         });
-
-
                     }
                 }
             }
@@ -156,7 +154,6 @@ public class RegisterActivity extends AppCompatActivity {
                 CountDownTimer time = new CountDownTimer(1000 * 60, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
-
                         btn3.setClickable(false);
                         btn3.setText("重新发送" + "(" + (millisUntilFinished / 1000) + ")");
                     }

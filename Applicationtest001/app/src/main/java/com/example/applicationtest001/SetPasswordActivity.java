@@ -3,6 +3,8 @@ package com.example.applicationtest001;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +32,7 @@ public class SetPasswordActivity extends AppCompatActivity {
 
             }
         });
+
 
         ImageView imageView = findViewById(R.id.Passwordstrength);
 
@@ -77,7 +80,8 @@ public class SetPasswordActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                    int tint = Color.parseColor("purple");
+                    btn1.getBackground().setColorFilter(tint, PorterDuff.Mode.DARKEN);
             }
         });
     }
