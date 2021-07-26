@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Applicationtest001"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ModifypasswordActivity"></activity>
+        <activity android:name=".MatchActivity"></activity>
+        <activity android:name=".ModifypasswordActivity" />
         <activity android:name=".SetPasswordActivity" />
         <activity android:name=".FChatActivity" />
         <activity android:name=".EditActivity" />

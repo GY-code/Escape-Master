@@ -48,7 +48,7 @@ public class FragmentRoom extends Fragment implements AdapterView.OnItemClickLis
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getActivity(), PlayActivity.class);
+        Intent intent = new Intent(getActivity(), MatchActivity.class);
         startActivity(intent);
     }
 }
