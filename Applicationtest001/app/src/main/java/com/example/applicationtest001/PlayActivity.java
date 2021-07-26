@@ -46,7 +46,7 @@ public class PlayActivity extends AppCompatActivity {
 
         Button btn3 = (Button)findViewById(R.id.editperson);
 
-        btn2.setOnClickListener(new View.OnClickListener(){
+        btn3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 SharedPreferences settings=getSharedPreferences("setting",0);
                 String phone_number= settings.getString("ph","");
