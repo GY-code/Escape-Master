@@ -44,46 +44,46 @@ public class RegisterActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-                String username = ((EditText)findViewById(R.id.setpassword1)).getText().toString().trim();
-                String password = ((EditText)findViewById(R.id.setpassword2)).getText().toString().trim();
-                if(username.equals("") || password.equals("")){
-                    Toast.makeText(RegisterActivity.this,"用户名或密码不能为空",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    SharedPreferences settings=getSharedPreferences("setting",0);
-                    SharedPreferences.Editor editor=settings.edit();
-                    editor.putString("ph",username);
-                    editor.putString("password",password);
-                    editor.commit();
-                    JSONObject jsonParam=new JSONObject();
-                    jsonParam.put("phone_number",username);
-                    jsonParam.put("password",password);
-                    String json = jsonParam.toJSONString();
-                    MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
-                    RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
-                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/RegisterS1", requestBody,  new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-                            System.out.println(e);
-                        }
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            final String data = response.body().string();
-                            Looper.prepare();
-                            if(data.equals("number registered"))
-                                Toast.makeText(RegisterActivity.this, "账号已被注册", Toast.LENGTH_SHORT).show();
-                            else {
-                                    Toast.makeText(RegisterActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
+//                String username = ((EditText)findViewById(R.id.setpassword1)).getText().toString().trim();
+//                String password = ((EditText)findViewById(R.id.setpassword2)).getText().toString().trim();
+//                if(username.equals("") || password.equals("")){
+//                    Toast.makeText(RegisterActivity.this,"用户名或密码不能为空",Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    SharedPreferences settings=getSharedPreferences("setting",0);
+//                    SharedPreferences.Editor editor=settings.edit();
+//                    editor.putString("ph",username);
+//                    editor.putString("password",password);
+//                    editor.commit();
+//                    JSONObject jsonParam=new JSONObject();
+//                    jsonParam.put("phone_number",username);
+//                    jsonParam.put("password",password);
+//                    String json = jsonParam.toJSONString();
+//                    MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
+//                    RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
+//                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/RegisterS1", requestBody,  new Callback() {
+//                        @Override
+//                        public void onFailure(Call call, IOException e) {
+//                            System.out.println(e);
+//                        }
+//                        @Override
+//                        public void onResponse(Call call, Response response) throws IOException {
+//                            final String data = response.body().string();
+//                            Looper.prepare();
+//                            if(data.equals("number registered"))
+//                                Toast.makeText(RegisterActivity.this, "账号已被注册", Toast.LENGTH_SHORT).show();
+//                            else {
+//                                    Toast.makeText(RegisterActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(RegisterActivity.this,SetPasswordActivity.class);
                                     startActivity(i);
-                            }
-                            Looper.loop();
-
-                        }
-                    });
-
-
-                }
+//                            }
+//                            Looper.loop();
+//
+//                        }
+//                    });
+//
+//
+//                }
             }
 
         });
