@@ -12,30 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Applicationtest001"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MatchActivity"></activity>
-        <activity android:name=".ModifypasswordActivity" />
-        <activity android:name=".SetPasswordActivity" />
-        <activity android:name=".FChatActivity" />
-        <activity android:name=".EditActivity" />
-        <activity android:name=".TaskActivity" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".PlayActivity" />
-        <activity android:name=".MainpageActivity" />
-        <activity android:name=".VerActivity" />
-        <activity android:name=".InforActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity2" />
+
+        <activity android:name=".UI.Function.MatchActivity" />
+        <activity android:name=".UI.Function.ModifypasswordActivity" />
+        <activity android:name=".UI.Register.SetPasswordActivity" />
+        <activity android:name=".UI.Chatroom.FChatActivity" />
+        <activity android:name=".UI.Function.EditActivity" />
+        <activity android:name=".UI.Function.TaskActivity" />
+        <activity android:name=".UI.Chatroom.ChatActivity" />
+        <activity android:name=".UI.Function.PlayActivity" />
+        <activity android:name=".UI.Function.MainpageActivity" />
+        <activity android:name=".UI.Login.VerActivity" />
+        <activity android:name=".UI.Register.InforActivity" />
+        <activity android:name=".UI.Register.RegisterActivity" />
+        <activity android:name=".UI.Login.MainActivity2" />
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/round_button" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".UI.Function.SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".UI.Login.MainActivity">
         </activity>
     </application>
 

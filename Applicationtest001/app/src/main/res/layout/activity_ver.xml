@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#393737"
-    tools:context=".VerActivity">
+    android:background="#F2F2F2"
+    tools:context=".UI.Login.VerActivity">
 
     <TextView
         android:id="@+id/textView9"
@@ -14,9 +14,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="37dp"
-        android:background="#393737"
+        android:background="#F2F2F2"
         android:text="输入短信验证码"
-        android:textColor="#F2F2F2"
+        android:textColor="#393737"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,6 +32,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:layout_marginBottom="560dp"
+        android:background="@drawable/rounded_editview"
         android:hint="请输入验证码"
         android:textColor="#F2F2F2"
         android:textColorHint="@color/white"
@@ -51,7 +52,7 @@
         android:background="@drawable/btn_shape"
         android:text="下一步"
         android:textColor="#D2D2D2"
-        app:backgroundTint="#F2F2F2"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +68,10 @@
         android:layout_marginEnd="147dp"
         android:layout_marginRight="147dp"
         android:layout_marginBottom="500dp"
-        android:background="#393737"
-        android:text="重新发送（60）"
-        android:textColor="#F2F2F2"
-        app:backgroundTint="#393737"
+        android:background="@drawable/white_strokebt"
+        android:text="发送"
+        android:textColor="#393737"
+        app:backgroundTint="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +85,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="5dp"
         android:text="已向您的手机1234发送验证码"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>

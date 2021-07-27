@@ -4,62 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#393737"
-    tools:context=".RegisterActivity">
+    android:background="#F2F2F2"
+    tools:context=".UI.Register.RegisterActivity">
+
 
     <Button
         android:id="@+id/sendver"
-        android:layout_width="146dp"
+        android:layout_width="130dp"
         android:layout_height="49dp"
-        android:layout_marginTop="84dp"
-        android:background="#393737"
-        android:text="重新发送（60）"
-        android:textColor="#F2F2F2"
-        app:backgroundTint="#393737"
-        app:layout_constraintStart_toEndOf="@+id/setMobile"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/white_strokebt"
+        android:text="发送"
+        android:textColor="#000000"
+        app:backgroundTint="#F2F2F2"
+        app:layout_constraintStart_toEndOf="@+id/setpassword1"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/RegisterButton"
         android:layout_width="244dp"
         android:layout_height="63dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="31dp"
         android:background="@drawable/btn_shape"
         android:text="注册"
-        android:textColor="#D2D2D2"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:backgroundTint="#F2F2F2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setpassword2" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:background="#393737"
-        android:text="手机号注册"
-        android:textColor="#F2F2F2"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="50dp"
+        android:background="#F2F2F2"
+        android:text="用手机号码注册"
+        android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/setMobile"
-        android:layout_width="204dp"
-        android:layout_height="47dp"
+        android:id="@+id/setpassword1"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/rounded_editview"
         android:hint="请输入您的手机号"
         android:textColor="#F2F2F2"
         android:textColorHint="@color/white"
@@ -69,15 +69,16 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/setSM"
+        android:id="@+id/setpassword2"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
+        android:background="@drawable/rounded_editview"
         android:hint="请输入验证码"
         android:textColor="#F2F2F2"
         android:textColorHint="@color/white"
@@ -85,17 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setMobile"
+        app:layout_constraintTop_toBottomOf="@+id/setpassword1"
         tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="返回"
-        app:backgroundTint="#393737"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

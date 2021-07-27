@@ -5,43 +5,10 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#393737"
-    tools:context=".MainActivity">
+    android:background="#F2F2F2"
+    tools:context=".UI.Login.MainActivity">
 
     <!--输入框-->
-
-    <EditText
-        android:id="@+id/password1"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="472dp"
-        android:hint="请输入密码"
-        android:textColor="#F2F2F2"
-        android:textColorHint="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="48dp"
-        android:background="#393737"
-        android:text="输入手机号"
-        android:textColor="#F2F2F2"
-        android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/phonenumber1"
@@ -52,15 +19,76 @@
         android:layout_marginLeft="44dp"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
-        android:layout_marginBottom="560dp"
-        android:hint="请输入您的手机号"
+        android:layout_marginBottom="536dp"
+        android:background="@drawable/rounded_editview"
+        android:hint="请输入手机号"
         android:textColor="#F2F2F2"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginBottom="448dp"
+        android:background="@drawable/rounded_editview"
+        android:hint="请输入密码"
+        android:textColor="#F2F2F2"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="378dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task">
+
+        <Button
+            android:id="@+id/SMSlogin"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:background="#F2F2F2"
+            android:text="短信登录"
+            android:textColor="#393737"
+            app:backgroundTint="#F2F2F2" />
+
+        <Button
+            android:id="@+id/teamchat"
+            android:layout_width="118dp"
+            android:layout_height="65dp"
+            android:background="#F2F2F2"
+            android:text="新用户注册"
+            android:textColor="#393737"
+            app:backgroundTint="#F2F2F2" />
+
+        <Button
+            android:id="@+id/forget"
+            android:layout_width="131dp"
+            android:layout_height="65dp"
+            android:background="#F2F2F2"
+            android:text="忘记密码？"
+            android:textColor="#393737"
+            app:backgroundTint="#F2F2F2" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/task"
@@ -70,15 +98,16 @@
         android:layout_marginBottom="378dp"
         android:background="@drawable/btn_shape"
         android:text="登录"
-        android:textColor="#D2D2D2"
+        android:textColor="@color/white"
         android:textSize="20sp"
-        app:backgroundTint="#F2F2F2"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password1"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.314"
+        app:rippleColor="#F2F2F2" />
 
     <TextView
         android:id="@+id/textView"
@@ -90,12 +119,12 @@
         android:layout_marginEnd="303dp"
         android:layout_marginRight="303dp"
         android:layout_marginBottom="50dp"
+
         android:text="微信登录"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SMSlogin" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -107,12 +136,15 @@
         android:layout_marginEnd="177dp"
         android:layout_marginRight="177dp"
         android:layout_marginBottom="50dp"
+
         android:text="QQ登录"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/task" />
+        app:layout_constraintTop_toBottomOf="@+id/task"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView4"
@@ -124,43 +156,12 @@
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="51dp"
+
         android:text="微博登录"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/forget" />
-
-    <LinearLayout
-        android:layout_width="378dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task">
-
-        <Button
-            android:id="@+id/SMSlogin"
-            android:layout_width="129dp"
-            android:layout_height="65dp"
-            android:text="短信登录"
-            app:backgroundTint="#393737" />
-
-        <Button
-            android:id="@+id/teamchat"
-            android:layout_width="118dp"
-            android:layout_height="65dp"
-            android:text="新用户注册"
-            app:backgroundTint="#393737" />
-
-        <Button
-            android:id="@+id/forget"
-            android:layout_width="131dp"
-            android:layout_height="65dp"
-            android:text="忘记密码？"
-            app:backgroundTint="#393737" />
-    </LinearLayout>
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     <Button
         android:id="@+id/wblogin"
@@ -171,7 +172,7 @@
         android:layout_marginLeft="60dp"
         android:background="@drawable/btn_shape"
         android:drawableBottom="@drawable/weibo"
-        app:backgroundTint="#393737"
+        app:backgroundTint="#F2F2F2"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/qqlogin" />
 
@@ -180,11 +181,11 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="63dp"
         android:layout_height="60dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:background="@drawable/btn_shape"
         android:drawableBottom="@drawable/qq"
-        app:backgroundTint="#393737"
+        app:backgroundTint="#F2F2F2"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/vxlogin" />
 
@@ -197,9 +198,19 @@
         android:layout_marginLeft="20dp"
         android:background="@drawable/btn_shape"
         android:drawableBottom="@drawable/weixin"
-        app:backgroundTint="#393737"
+        app:backgroundTint="#F2F2F2"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="345dp"
+        android:layout_height="132dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/phonenumber1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

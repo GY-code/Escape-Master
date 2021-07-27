@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#393737"
-    tools:context=".MatchActivity">
+    tools:context=".UI.Function.MatchActivity">
 
     <Button
         android:id="@+id/quxiaobt"

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#393737"
-    android:gravity="center" >
+    android:background="#F2F2F2"
+    android:gravity="center">
 
     <Button
         android:id="@+id/modifypassword"
@@ -13,8 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
+        android:background="@drawable/white_strokebt"
         android:text="修改密码"
-        app:backgroundTint="#393737"
+        android:textColor="#393737"
+        app:backgroundTint="#F2F2F2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +39,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="48dp"
         android:text="用户名"
-        android:textColor="#F2F2F2"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
@@ -50,7 +52,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="48dp"
         android:text="快乐的猕猴桃"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
@@ -63,7 +65,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="40dp"
         android:text="昵称"
-        android:textColor="#F2F2F2"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -76,7 +78,7 @@
         android:layout_marginLeft="64dp"
         android:layout_marginTop="40dp"
         android:text="快乐的猕猴桃"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -89,7 +91,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="40dp"
         android:text="性别"
-        android:textColor="#F2F2F2"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -102,36 +104,10 @@
         android:layout_marginLeft="64dp"
         android:layout_marginTop="40dp"
         android:text="男"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="40dp"
-        android:text="生日"
-        android:textColor="#F2F2F2"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="40dp"
-        android:text="2001年3月27号"
-        android:textColor="#D2D2D2"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView19"
@@ -141,10 +117,10 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="40dp"
         android:text="时长"
-        android:textColor="#F2F2F2"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView20"
@@ -154,10 +130,10 @@
         android:layout_marginLeft="64dp"
         android:layout_marginTop="40dp"
         android:text="5小时"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView21"
@@ -167,7 +143,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginTop="40dp"
         android:text="简介"
-        android:textColor="#F2F2F2"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -180,7 +156,7 @@
         android:layout_marginLeft="64dp"
         android:layout_marginTop="40dp"
         android:text="我是一阵风"
-        android:textColor="#D2D2D2"
+        android:textColor="#393737"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
@@ -189,8 +165,10 @@
         android:id="@+id/editperson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/white_strokebt"
         android:text="编辑"
-        app:backgroundTint="#393737"
+        android:textColor="#393737"
+        app:backgroundTint="#F2F2F2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

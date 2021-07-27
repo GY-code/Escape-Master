@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity">
+    tools:context=".UI.Function.EditActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#393737"
+        android:background="#F2F2F2"
         android:gravity="center"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-149dp">
@@ -24,7 +24,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             app:layout_constraintStart_toEndOf="@+id/textView21"
             app:layout_constraintTop_toBottomOf="@+id/edittime" />
 
@@ -52,7 +52,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             app:layout_constraintStart_toEndOf="@+id/textView19"
             app:layout_constraintTop_toBottomOf="@+id/editgender" />
 
@@ -66,7 +66,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             app:layout_constraintStart_toEndOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/editName1" />
 
@@ -78,7 +78,7 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="185dp"
             android:text="用户名"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +91,7 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="40dp"
             android:text="昵称"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -104,7 +104,7 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="40dp"
             android:text="性别"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -117,7 +117,7 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="40dp"
             android:text="时长"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -130,7 +130,7 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="40dp"
             android:text="简介"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -145,7 +145,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
-            android:textColor="#F2F2F2"
+            android:textColor="#393737"
             app:layout_constraintStart_toEndOf="@+id/textView15"
             app:layout_constraintTop_toBottomOf="@+id/editName2" />
 
@@ -158,8 +158,11 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="159dp"
             android:layout_marginRight="159dp"
+            android:background="@drawable/btn_shape"
             android:text="确认"
-            app:backgroundTint="#393737"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:backgroundTint="@color/purple_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editinfo" />
