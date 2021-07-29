@@ -1,62 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UI.Function.PlayActivity">
-
+    tools:context=".PlayActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/play_frame"
-        android:layout_width="match_parent"
-        android:layout_height="640dp">
-
-        <ImageView
-            android:id="@+id/gridmap"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
-            android:padding="0dp"
-            android:src="@drawable/gridmap"
-            app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/constrainLayout"
+        android:layout_width="412dp"
+        android:layout_height="671dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:id="@+id/play_frame"
+            android:layout_width="408dp"
+            android:layout_height="669dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent">
+
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <Button
-            android:id="@+id/task"
-            android:layout_width="60dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="228dp"
-            android:backgroundTint="#F2F2F2"
-            android:drawableBottom="@drawable/renwu"
-            app:iconPadding="8dp"/>
-
-        <Button
-            android:id="@+id/teamchat"
-            android:layout_width="62dp"
-            android:layout_height="59dp"
-            android:backgroundTint="#F2F2F2"
-            android:drawableBottom="@drawable/chat"/>
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/editperson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginBottom="10dp"
-            android:text="Button"/>
-    </LinearLayout>
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/teamchat"
+            android:layout_width="62dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginLeft="140dp"
+            android:backgroundTint="#F2F2F2"
+            android:drawableBottom="@drawable/chat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/task"
+            android:layout_width="60dp"
+            android:layout_height="58dp"
+            android:backgroundTint="#F2F2F2"
+            android:drawableBottom="@drawable/renwu"
+            app:iconPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editperson"
+            app:layout_constraintHorizontal_bias="0.406"
+            app:layout_constraintStart_toEndOf="@+id/teamchat"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/plot"
+            android:layout_width="62dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#F2F2F2"
+            android:drawableBottom="@drawable/plot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/teamchat"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:text="通关"
+            app:layout_constraintEnd_toStartOf="@+id/plot"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

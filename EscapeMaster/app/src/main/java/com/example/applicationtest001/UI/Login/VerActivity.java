@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.applicationtest001.Class.Friend;
 import com.example.applicationtest001.UI.Function.MainpageActivity;
 import com.example.applicationtest001.Tool.OkHttpUtils;
 import com.example.applicationtest001.R;
@@ -149,7 +150,7 @@ public class VerActivity extends AppCompatActivity {
                                 Toast.makeText(VerActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
                             else
                             {
-                                User.user= JSON.parseObject(data,User.class);
+                                Friend.user= JSON.parseObject(data,User.class);
                                 Toast.makeText(VerActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(VerActivity.this, MainpageActivity.class);
                                 startActivity(i);

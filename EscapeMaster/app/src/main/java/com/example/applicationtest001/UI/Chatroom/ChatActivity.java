@@ -28,6 +28,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 import com.example.applicationtest001.Adapter.Adapter_ChatMessage;
 import com.example.applicationtest001.Class.Msg;
 import com.example.applicationtest001.Adapter.MsgAdapter;
@@ -43,7 +45,9 @@ import com.example.applicationtest001.util.Util;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
@@ -139,19 +143,24 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (client != null && client.isOpen()) {
 
-//                    try {
-//                        JSONObject jsonObject=new JSONObject();
-//                        jsonObject.put("sender","xiaoming");
-//                        jsonObject.put("time",System.currentTimeMillis());
-//                        jsonObject.put("content",content);
-//                        jsonObject.put("receiver","xiaohong");
-//                        String js=jsonObject.toString();
-//                        jWebSClientService.sendMsg(js);
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
+                    try {
+                        SharedPreferences settings=getSharedPreferences("setting",0);
+                        String sender=settings.getString("ph","0");
+                        JSONObject jsonObject=new JSONObject();
+                        jsonObject.put("sender",sender);
+                        jsonObject.put("id","123");
+                        Date date=new Date();
+                        SimpleDateFormat formatter=new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
+                        String datestring=formatter.format(date);
+                        jsonObject.put("sendtime",datestring);
+                        jsonObject.put("content",content);
+                        jsonObject.put("saver","all");
+                        String js=jsonObject.toJSONString();
+                        jWebSClientService.sendMsg(js);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                    jWebSClientService.sendMsg(content);
 
                     //暂时将发送的消息加入消息列表，实际以发送成功为准（也就是服务器返回你发的消息时）
                     ChatMessage chatMessage = new ChatMessage();
@@ -176,8 +185,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onReceive(Context context, Intent intent) {
             String message = intent.getStringExtra("content");
+            String sender=intent.getStringExtra("sender");
             ChatMessage chatMessage = new ChatMessage();
             chatMessage.setContent(message);
+            chatMessage.setSender(sender);
             chatMessage.setIsMeSend(0);
             chatMessage.setIsRead(1);
             chatMessage.setTime(System.currentTimeMillis() + "");

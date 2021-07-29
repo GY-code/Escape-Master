@@ -11,8 +11,35 @@
         android:layout_height="match_parent"
         android:background="@drawable/personbg"
         android:gravity="center"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-149dp">
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="34dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/editName2">
+
+            <RadioButton
+                android:id="@+id/maleradioButton"
+                android:layout_width="114dp"
+                android:layout_height="match_parent"
+                android:text="男"
+                android:textColor="#F2F2F2" />
+
+            <RadioButton
+                android:id="@+id/femaleradioButton"
+                android:layout_width="112dp"
+                android:layout_height="match_parent"
+                android:text="女"
+                android:textColor="#F2F2F2" />
+
+        </RadioGroup>
 
         <EditText
             android:id="@+id/editName1"
@@ -36,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginLeft="48dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="36dp"
             android:background="@null"
             android:ems="10"
             android:inputType="textPersonName"
@@ -44,22 +71,7 @@
             android:textColor="#F2F2F2"
             android:textColorHint="#F2F2F2"
             app:layout_constraintStart_toEndOf="@+id/textView21"
-            app:layout_constraintTop_toBottomOf="@+id/edittime" />
-
-        <EditText
-            android:id="@+id/edittime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
-            android:layout_marginTop="48dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textColor="#F2F2F2"
-            app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/editgender" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <EditText
             android:id="@+id/editName2"
@@ -117,19 +129,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="40dp"
-            android:text="时长"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-        <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,23 +139,7 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-        <EditText
-            android:id="@+id/editgender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
-            android:layout_marginTop="48dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textColor="#F2F2F2"
-            android:textColorHint="#F2F2F2"
-            app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/editName2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <Button
             android:id="@+id/editconfirm"
@@ -164,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="159dp"
             android:layout_marginLeft="159dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="159dp"
             android:layout_marginRight="159dp"
             android:background="@drawable/btn_shape"
@@ -173,6 +156,7 @@
             android:textSize="20sp"
             app:backgroundTint="@color/purple_200"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editinfo" />
 

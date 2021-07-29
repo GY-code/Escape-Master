@@ -24,13 +24,16 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.applicationtest001.Class.Friend;
 import com.example.applicationtest001.UI.Chatroom.ChatActivity;
+import com.example.applicationtest001.UI.Chatroom.FChatActivity;
 import com.example.applicationtest001.UI.Function.MainpageActivity;
 import com.example.applicationtest001.Tool.OkHttpUtils;
 import com.example.applicationtest001.R;
 import com.example.applicationtest001.UI.Register.RegisterActivity;
 import com.example.applicationtest001.Tool.StringUtils;
 import com.example.applicationtest001.Class.User;
+import com.example.applicationtest001.Class.Friend;
 import com.example.applicationtest001.im.JWebSocketClient;
 import com.example.applicationtest001.im.JWebSocketClientService;
 import com.example.applicationtest001.modle.ChatMessage;
@@ -73,16 +76,27 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             String message=intent.getStringExtra("message");
-            ChatMessage chatMessage=new ChatMessage();
-            chatMessage.setContent(message);
-            chatMessage.setIsMeSend(0);
-            chatMessage.setIsRead(1);
-            chatMessage.setTime(System.currentTimeMillis()+"");
-            chatMessageList.add(chatMessage);
-            Intent intent_1=new Intent(ChatActivity.action);
-            intent_1.putExtra("content",message);
-            sendBroadcast(intent_1);
-            //initChatMsgListView("all");
+            System.out.println(message);
+            JSONObject jsonObject=JSONObject.parseObject(message);
+            String receiver=jsonObject.getString("saver");
+            if(receiver.equals("all"))
+            {
+                String content=jsonObject.getString("content");
+                String sender=jsonObject.getString("sender");
+                Intent intent_1=new Intent(ChatActivity.action);
+                intent_1.putExtra("sender",sender);
+                intent_1.putExtra("content",content);
+                sendBroadcast(intent_1);
+            }
+            else
+            {
+                String content=jsonObject.getString("content");
+                String sender=jsonObject.getString("sender");
+                Intent intent_2=new Intent(FChatActivity.action);
+                intent_2.putExtra("sender",sender);
+                intent_2.putExtra("content",content);
+                sendBroadcast(intent_2);
+            }
         }
     }
 
@@ -142,57 +156,62 @@ public class MainActivity extends AppCompatActivity {
 
         btn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                if (true) {
                     String username = ((EditText) findViewById(R.id.phonenumber1)).getText().toString().trim();
                     String password = ((EditText) findViewById(R.id.password1)).getText().toString().trim();
-                    if (username.equals("") || password.equals(""))
-                        Toast.makeText(MainActivity.this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
-                    else {
-                        JSONObject jsonParam = new JSONObject();
-                        jsonParam.put("ph", username);
-                        jsonParam.put("pw", password);
-                        String json = jsonParam.toJSONString();
-                        MediaType mediaType = MediaType.Companion.parse("application/json;charset=utf-8");
-                        RequestBody requestBody = RequestBody.Companion.create(json, mediaType);
-                        OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/LoginByPw", requestBody, new Callback() {
-                            @Override
-                            public void onFailure(Call call, IOException e) {
-                                System.out.println(e);
-                            }
+                    Login(username,password);
 
-                            @Override
-                            public void onResponse(Call call, Response response) throws IOException {
-                                final String data = response.body().string();
-                                Looper.prepare();
-                                if (data.equals("number not registered"))
-                                    Toast.makeText(MainActivity.this, "账号未注册", Toast.LENGTH_SHORT).show();
-                                else {
-                                    if (data.equals("incorrect password"))
-                                        Toast.makeText(MainActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
-                                    else {
-                                        User.user = JSON.parseObject(data, User.class);
-                                        Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-                                        SharedPreferences settings = getSharedPreferences("setting", 0);
-                                        SharedPreferences.Editor editor = settings.edit();
-                                        editor.putString("ph", username);
-                                        editor.putString("password", password);
-                                        editor.commit();
-                                        Intent i = new Intent(MainActivity.this, MainpageActivity.class);
-                                        startActivity(i);
-                                    }
-                                }
-                                Looper.loop();
 
-                            }
-                        });
-                    }
-
-                }
             }
         });
 
     }
+
+    private void Login(String username,String password)
+    {
+        if (username.equals("") || password.equals(""))
+            Toast.makeText(MainActivity.this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
+        else {
+            JSONObject jsonParam = new JSONObject();
+            jsonParam.put("ph", username);
+            jsonParam.put("pw", password);
+            String json = jsonParam.toJSONString();
+            MediaType mediaType = MediaType.Companion.parse("application/json;charset=utf-8");
+            RequestBody requestBody = RequestBody.Companion.create(json, mediaType);
+            OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/LoginByPw", requestBody, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    System.out.println(e);
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    final String data = response.body().string();
+                    Looper.prepare();
+                    if (data.equals("number not registered"))
+                        Toast.makeText(MainActivity.this, "账号未注册", Toast.LENGTH_SHORT).show();
+                    else {
+                        if (data.equals("incorrect password"))
+                            Toast.makeText(MainActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+                        else {
+                            Friend.user = JSON.parseObject(data, User.class);
+                            Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                            SharedPreferences settings = getSharedPreferences("setting", 0);
+                            SharedPreferences.Editor editor = settings.edit();
+                            editor.putString("ph", username);
+                            editor.putString("password", password);
+                            editor.commit();
+                            Friend.getFriend(username);
+                            Intent i = new Intent(MainActivity.this, MainpageActivity.class);
+                            startActivity(i);
+                        }
+                    }
+                    Looper.loop();
+
+                }
+            });
+        }
+    }
+
 
     @Override
     protected void onDestroy() {

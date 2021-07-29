@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.applicationtest001.Class.Friend;
 import com.example.applicationtest001.Class.User;
 import com.example.applicationtest001.UI.Function.EditActivity;
 import com.example.applicationtest001.UI.Function.ModifypasswordActivity;
@@ -64,13 +65,13 @@ public class FragmentPerson extends Fragment {
         TextView t2=getView().findViewById(R.id.textView14);
         TextView t3=getView().findViewById(R.id.textView16);
         TextView t4=getView().findViewById(R.id.textView22);
-        t1.setText(User.user.getPhone_number());
-        t2.setText(User.user.getNickname());
-        if(User.user.getGender()==1)
+        t1.setText(Friend.user.getPhone_number());
+        t2.setText(Friend.user.getNickname());
+        if(Friend.user.getGender()==1)
             t3.setText("男");
         else
             t3.setText("女");
-        t4.setText(User.user.getSignature());
+        t4.setText(Friend.user.getSignature());
     }
 
 }

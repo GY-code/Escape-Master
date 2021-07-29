@@ -7,15 +7,16 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.applicationtest001.Class.Friend;
 import com.example.applicationtest001.Class.User;
 import com.example.applicationtest001.R;
 import com.example.applicationtest001.Tool.OkHttpUtils;
-import com.example.applicationtest001.UI.Register.InforActivity;
 
 import java.io.IOException;
 
@@ -32,24 +33,29 @@ public class EditActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        TextView t1=findViewById(R.id.editName1);
-        TextView t2=findViewById(R.id.editName2);
-        TextView t3=findViewById(R.id.editgender);
-        TextView t4=findViewById(R.id.editinfo);
-        t1.setText(User.user.getPhone_number());
-        t2.setText(User.user.getNickname());
-        if(User.user.getGender()==1)
-            t3.setText("男");
+        EditText t1=findViewById(R.id.editName1);
+        EditText t2=findViewById(R.id.editName2);
+        RadioButton radioButton1=(RadioButton)findViewById(R.id.maleradioButton);
+        RadioButton radioButton2=(RadioButton)findViewById(R.id.femaleradioButton);
+        EditText t4=findViewById(R.id.editinfo);
+        t1.setText(Friend.user.getPhone_number());
+        t2.setText(Friend.user.getNickname());
+        if(Friend.user.getGender()==1)
+            radioButton1.setChecked(true);
         else
-            t3.setText("女");
-        t4.setText(User.user.getSignature());
+            radioButton2.setChecked(true);
+        t4.setText(Friend.user.getSignature());
         Button btn=findViewById(R.id.editconfirm);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username=t1.getText().toString().trim();
                 String nickname=t2.getText().toString().trim();
-                String gender=t3.getText().toString().trim();
+                String gender;
+                if(((RadioButton)findViewById(R.id.maleradioButton)).isChecked())
+                    gender="1";
+                else
+                    gender="0";
                 String information=t4.getText().toString().trim();
                 if(username.equals("")||nickname.equals("")||gender.equals("")||information.equals(""))
                     Toast.makeText(EditActivity.this,"用户信息不完整",Toast.LENGTH_SHORT).show();
@@ -62,7 +68,7 @@ public class EditActivity extends AppCompatActivity {
                     String json = jsonParam.toJSONString();
                     MediaType mediaType=MediaType.Companion.parse("application/json;charset=utf-8");
                     RequestBody requestBody=RequestBody.Companion.create(json,mediaType);
-                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/ModifuInfo", requestBody,  new Callback() {
+                    OkHttpUtils.sendOkHttpResponse("http://o414e98134.wicp.vip/user/ModifyInfo", requestBody,  new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
                             System.out.println(e);
@@ -74,7 +80,7 @@ public class EditActivity extends AppCompatActivity {
                             if(data.equals("Modify error"))
                                 Toast.makeText(EditActivity.this, "修改失败", Toast.LENGTH_SHORT).show();
                             else {
-                                User.user= JSON.parseObject(data,User.class);
+                                Friend.user= JSON.parseObject(data,User.class);
                                 Toast.makeText(EditActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(EditActivity.this, MainpageActivity.class);
                                 startActivity(i);

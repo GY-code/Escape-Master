@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.applicationtest001.Adapter.RoomAdapter;
 import com.example.applicationtest001.UI.Function.MatchActivity;
 import com.example.applicationtest001.R;
+import com.example.applicationtest001.UI.Function.RoomInfoActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +64,7 @@ public class FragmentRoom extends Fragment implements AdapterView.OnItemClickLis
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getActivity(), MatchActivity.class);
+        Intent intent = new Intent(getActivity(), RoomInfoActivity.class);
         startActivity(intent);
     }
 }

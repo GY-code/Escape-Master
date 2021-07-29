@@ -97,9 +97,12 @@ public class JWebSocketClientService extends Service {
             Intent innerIntent = new Intent(this, GrayInnerService.class);
             startService(innerIntent);
             //startForeground(GRAY_SERVICE_ID, new Notification());
-        } else {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             //Android7.0以上app启动后通知栏会出现一条"正在运行"的通知
-            //startForeground(GRAY_SERVICE_ID, new Notification());
+            Intent innerIntent = new Intent(this, GrayInnerService.class);
+
+                //startForegroundService(innerIntent);
+
         }
 
         acquireWakeLock();

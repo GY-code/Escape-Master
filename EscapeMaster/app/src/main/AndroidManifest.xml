@@ -3,17 +3,15 @@
     package="com.example.applicationtest001">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <!-- 申请电源锁需要的权限 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--震动权限-->
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <!--android 9.0之后使用前台服务，需要添加权限-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 申请电源锁需要的权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- android 9.0之后使用前台服务，需要添加权限 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Applicationtest001"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".FriendInfoActivity"></activity>
         <activity android:name=".UI.Function.MatchActivity" />
         <activity android:name=".UI.Function.ModifypasswordActivity" />
         <activity android:name=".UI.Register.SetPasswordActivity" />
@@ -36,6 +34,7 @@
         <activity android:name=".UI.Register.InforActivity" />
         <activity android:name=".UI.Register.RegisterActivity" />
         <activity android:name=".UI.Login.MainActivity2" />
+
         <service
             android:name=".im.JWebSocketClientService"
             android:enabled="true"
@@ -44,34 +43,31 @@
             android:name=".im.JWebSocketClientService$GrayInnerService"
             android:enabled="true"
             android:exported="false"
-            android:process=":gray" />
-<!--        <activity android:name=".MatchActivity"></activity>-->
-<!--        <activity android:name=".ModifypasswordActivity" />-->
-<!--        <activity android:name=".SetPasswordActivity" />-->
-<!--        <activity android:name=".FChatActivity" />-->
-<!--        <activity android:name=".EditActivity" />-->
-<!--        <activity android:name=".TaskActivity" />-->
-<!--        <activity android:name=".ChatActivity" />-->
-<!--        <activity android:name=".PlayActivity" />-->
-<!--        <activity android:name=".MainpageActivity" />-->
-<!--        <activity android:name=".VerActivity" />-->
-<!--        <activity android:name=".InforActivity" />-->
-<!--        <activity android:name=".RegisterActivity" />-->
-<!--        <activity android:name=".MainActivity2" />-->
-
+            android:process=":gray" /> <!-- <activity android:name=".MatchActivity"></activity> -->
+        <!-- <activity android:name=".ModifypasswordActivity" /> -->
+        <!-- <activity android:name=".SetPasswordActivity" /> -->
+        <!-- <activity android:name=".FChatActivity" /> -->
+        <!-- <activity android:name=".EditActivity" /> -->
+        <!-- <activity android:name=".TaskActivity" /> -->
+        <!-- <activity android:name=".ChatActivity" /> -->
+        <!-- <activity android:name=".PlayActivity" /> -->
+        <!-- <activity android:name=".MainpageActivity" /> -->
+        <!-- <activity android:name=".VerActivity" /> -->
+        <!-- <activity android:name=".InforActivity" /> -->
+        <!-- <activity android:name=".RegisterActivity" /> -->
+        <!-- <activity android:name=".MainActivity2" /> -->
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/round_button" />
 
         <activity android:name=".UI.Function.SplashActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Login.MainActivity">
-        </activity>
+        <activity android:name=".UI.Login.MainActivity"></activity>
     </application>
 
 </manifest>

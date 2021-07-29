@@ -14,12 +14,19 @@ public class PermissUtil {
     public static final int PERMISSON_REQUESTCODE = 123;
     //app需要进行检测的权限数组
     public static String[] appNeedPermissions = {
-            Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.CHANGE_WIFI_STATE,
             Manifest.permission.ACCESS_WIFI_STATE,
-            Manifest.permission.CHANGE_WIFI_STATE
+            Manifest.permission.CHANGE_NETWORK_STATE,
+            Manifest.permission.INTERNET,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.WAKE_LOCK,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
     };
-     //app权限检测
+
+    //app权限检测
     public static boolean checkPermissions(Activity activity, String... permissions) {
         List<String> needRequestPermissonList = findDeniedPermissions(activity, permissions);
         if (null != needRequestPermissonList
@@ -31,6 +38,7 @@ public class PermissUtil {
             return false;
         } else return true;
     }
+
     //获取权限集中需要申请权限的列表
     public static List<String> findDeniedPermissions(Activity contexts, String[] permissions) {
         List<String> needRequestPermissonList = new ArrayList<String>();
@@ -47,6 +55,7 @@ public class PermissUtil {
         }
         return needRequestPermissonList;
     }
+
     //检测是否说有的权限都已经授权
     public static boolean verifyPermissions(int[] grantResults) {
 

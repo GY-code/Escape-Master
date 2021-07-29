@@ -3,6 +3,8 @@ package com.example.applicationtest001.Tool;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -11,7 +13,7 @@ public class OkHttpUtils {
     private static int TimeOut = 120;
     //单例获取ohttp3对象
     private static OkHttpClient client = null;
-
+    private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
     private static synchronized OkHttpClient getInstance() {
         if (client == null) {
             client = new OkHttpClient.Builder()
@@ -43,5 +45,18 @@ public class OkHttpUtils {
                 .build();
         client.newCall(request).enqueue(callback);
     }
+
+//    public static void sendOkHttpFile(final String address,String path, final Callback callback)
+//    {
+//        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+//        RequestBody fileBody = RequestBody.create(MEDIA_TYPE_PNG, file);
+//        builder.addFormDataPart(key1, file.getName(), fileBody);
+//        //创建请求体
+//        RequestBody requestBody = builder.build();
+//        OkHttpClient okhttp = getInstance();
+//        okhttp.newBuilder().followRedirects(true);
+//        Request request = new Request.Builder().url(address).post(requestBody).build();
+//        client.newCall(request).enqueue(callback);
+//    }
 
 }

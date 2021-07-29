@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/friendView"
-        android:layout_width="401dp"
-        android:layout_height="43dp"
+        android:layout_width="326dp"
+        android:layout_height="37dp"
         android:gravity="center"
         android:text="我的好友"
         android:textColor="#F2F2F2"

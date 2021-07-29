@@ -8,7 +8,7 @@ public class User {
     private int gender;
     private String signature;
 
-    public static User user=null;
+
     @Override
     public String toString() {
         return "User{" +

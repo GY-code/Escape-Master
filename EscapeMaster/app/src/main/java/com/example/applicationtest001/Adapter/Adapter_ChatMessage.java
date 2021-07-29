@@ -101,7 +101,7 @@ public class Adapter_ChatMessage extends BaseAdapter {
             }
         }else{
             holder.tv_display_name.setVisibility(View.VISIBLE);
-            holder.tv_display_name.setText("服务器");
+            holder.tv_display_name.setText(mChatMessage.getSender());
         }
 
         return view;
