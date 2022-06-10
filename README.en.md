@@ -1,36 +1,63 @@
 # Escape Master
 
-#### Description
-基于WIFI定位的密室逃脱游戏辅助APP
+## Introduction
 
-#### Software Architecture
-Software architecture description
-
-#### Installation
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+Design and implementation of positioning tool based on WiFi signal strength
 
 
-#### Gitee Feature
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## Software architecture diagram
+
+### Overall architecture
+
+
+
+![software architecture diagram](assets/系统架构设计.png)
+
+### Back end architecture
+
+
+
+![img.png](assets/后端架构图.png)
+
+
+
+## Functional structure design drawing
+
+
+
+![software architecture diagram](assets/功能结构设计.png)
+
+## Screenshot
+
+
+![img.png](assets/ss2.png)
+<div align=center>
+<img src="assets/ss1.png" height="500"/>
+<img src="assets/ss3.png" height="500"/>
+</div>
+
+
+### Software design specification
+
+[software design specification](assets/项目设计说明书.pdf)
+
+## Installation tutorial
+
+1. configuration environment
+
+2. adjust the positioning algorithm parameters according to the location
+
+3. operation
+
+
+
+## Participation contribution
+
+1. fork this repository
+
+2. create feat_XXX branch
+
+3. submission code
+
+4. create a new pull request

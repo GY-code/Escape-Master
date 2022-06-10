@@ -1,37 +1,41 @@
 # Escape Master
 
-#### 介绍
-基于WIFI定位的密室逃脱游戏辅助APP。
-
-#### 软件架构
-软件架构说明
+## 介绍
+基于WIFI信号强度的定位工具的设计与实现
 
 
-#### 安装教程
+## 软件架构图
+### 总体架构
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+![软件架构图](assets/系统架构设计.png)
+### 后端架构
 
-#### 使用说明
+![img.png](assets/后端架构图.png)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 功能结构设计图
 
-#### 参与贡献
+![软件架构图](assets/功能结构设计.png)
+
+## 屏幕快照
+![img.png](assets/ss2.png)
+<div align=center>
+<img src="assets/ss1.png" height="500"/>
+<img src="assets/ss3.png" height="500"/>
+</div>
+
+### 软件设计说明书
+[软件设计说明书](assets/项目设计说明书.pdf)
+
+## 安装教程
+
+1.  配置环境
+2.  根据所处位置调整定位算法参数
+3.  运行
+
+## 参与贡献
 
 1.  Fork 本仓库
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
 
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
